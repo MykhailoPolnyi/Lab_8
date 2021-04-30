@@ -11,10 +11,11 @@ My lab 2 task:<br>
  </p>
 
 ### Class diagram:
-https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp=
-- Also diagram was added to git as ZooClassDiagram.png.
+<p>
+https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp=<br>
+Also diagram was added to git as ZooClassDiagram.png.</p>
 
-<H2>Requirements</H2>
+##Requirements
 - Java code convention.
 - Classes had to be properly divided into packages.
 - Minimal working with the console.
