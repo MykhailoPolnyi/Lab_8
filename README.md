@@ -29,7 +29,8 @@ My lab 2 task:<br>
 - - PMD
 - - Checkstyle 
 ### To run the program:
-- Clone branch from repo:`git clone https://github.com/MykhailoPolnyi/Lab_8 Lab_8`
+- Clone repo:`git clone https://github.com/MykhailoPolnyi/Lab_8`
+- Clone branch from repo:`git branch https://github.com/MykhailoPolnyi/Lab_8 Lab_8`
 - Enter the repo folder via `cd` command 
 - Run `mvn compile`
 - Run `java -cp target\ZooServiceLab8-1.0-SNAPSHOT.jar ua.lviv.iot.zoo.App`
