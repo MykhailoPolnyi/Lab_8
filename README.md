@@ -1,23 +1,21 @@
 # Lab_8
 
-<H2>Task</H2>
-<p>Write code for UML diagram from lab 2<br>
+##Task
+
+Write code for UML diagram from lab 2<br>
 My lab 2 task:<br>
 
 - **Zoo**. Implement a hierarchy of animals that live in zoo aquariums. <br>
   Search for animals that live longer than 5 years. Print the result sorted by animal species.<br>
   Implement the ability to sort the animals by the volume of the aquarium, implemented as a separate method.<br>
   The implementation of sorting should provide the ability to sort both in descending and ascending order
- </p>
 
 ### Class diagram:
-<p>
-https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp=<br>
-Also diagram was added to git as ZooClassDiagram.png.</p>
+
+https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp= <br>
+Also diagram was added to git as ZooClassDiagram.png.
 
 ##Requirements
-
-<p>
 
 - Java code convention.
 - Classes had to be properly divided into packages.
@@ -34,10 +32,10 @@ Also diagram was added to git as ZooClassDiagram.png.</p>
 - - Jacoco 
 - - FindBugs
 - - PMD
-- - Checkstyle 
-  
-</p>
+- - Checkstyle
+
 ### To run the program:
+
 - Clone repo:`git clone https://github.com/MykhailoPolnyi/Lab_8`
 - Enter the repo folder via `cd` command
 - Change branch to Lab_8:`git checkout Lab_8`
