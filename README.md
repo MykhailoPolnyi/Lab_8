@@ -1,6 +1,6 @@
 # Lab_8
 
-##Task
+<H2>Task</H2>
 <p>Write code for UML diagram from lab 2<br>
 My lab 2 task:<br>
 
