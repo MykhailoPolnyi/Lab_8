@@ -1,6 +1,6 @@
-# Lab_8 <br>
+# Lab_8
 
-##Task
+## Task
 
 Write code for UML diagram from lab 2<br>
 My lab 2 task:<br>
@@ -13,9 +13,9 @@ My lab 2 task:<br>
 ### Class diagram:
 
 https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp= <br>
-Also diagram was added to git as ZooClassDiagram.png.<br>
+Also diagram was added to git as ZooClassDiagram.png.
 
-##Requirements
+## Requirements
 
 - Java code convention.
 - Classes had to be properly divided into packages.
