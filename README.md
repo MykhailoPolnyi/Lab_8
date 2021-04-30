@@ -29,12 +29,12 @@ My lab 2 task:<br>
 - - PMD
 - - Checkstyle 
 ### To run the program:
-- `git clone https://github.com/MykhailoPolnyi/Lab_8 Lab_8`
-- `mvn install`
-- `mvn compile`
+- Clone branch from repo:`git clone https://github.com/MykhailoPolnyi/Lab_8 Lab_8`
+- Enter the repo folder via `cd` command 
+- Run `mvn compile`
+- Run `java -cp target\ZooServiceLab8-1.0-SNAPSHOT.jar ua.lviv.iot.zoo.App`
 
 To check code errors:
 - `mvn checkstyle:check`
 - `mvn findbugs:gui`
-- `mvn pmd:pmd`
     
