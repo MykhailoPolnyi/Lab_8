@@ -1,5 +1,4 @@
 # Lab_8
-
 ##Task
 <p>Write code for UML diagram from lab 2<br>
 My lab 2 task:<br>
@@ -10,8 +9,10 @@ My lab 2 task:<br>
   The implementation of sorting should provide the ability to sort both in descending and ascending order
  </p>
 
+### Class diagram:
+https://drive.google.com/file/d/1RRx1aoQ5wx8FrW66Up0_rmq-FMBfH9wd/view?usp=
+- Also diagram was added to git as ZooClassDiagram.png.
 ##Requirements
-
 - Java code convention.
 - Classes had to be properly divided into packages.
 - Minimal working with the console.
@@ -30,12 +31,14 @@ My lab 2 task:<br>
 - - Checkstyle 
 ### To run the program:
 - Clone repo:`git clone https://github.com/MykhailoPolnyi/Lab_8`
-- Clone branch from repo:`git branch https://github.com/MykhailoPolnyi/Lab_8 Lab_8`
-- Enter the repo folder via `cd` command 
+- Enter the repo folder via `cd` command
+- Change branch to Lab_8:`git checkout Lab_8`
 - Run `mvn compile`
+- Run `mvn package`  
 - Run `java -cp target\ZooServiceLab8-1.0-SNAPSHOT.jar ua.lviv.iot.zoo.App`
 
 To check code errors:
 - `mvn checkstyle:check`
 - `mvn findbugs:gui`
+- `mvn pmd:pmd`
     
