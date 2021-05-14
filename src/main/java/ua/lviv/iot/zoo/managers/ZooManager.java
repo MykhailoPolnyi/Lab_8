@@ -18,18 +18,18 @@ import java.util.stream.Collectors;
 public class ZooManager {
     private List<Animal> allAnimals;
 
-    protected void sortAnimalListByType(final List<Animal> animalListToSort, boolean isSortAsc) {
+    protected List<Animal> sortAnimalListByType(final List<Animal> animalListToSort, boolean isSortAsc) {
         animalListToSort.sort(Comparator.comparing(Animal::getAnimalType));
         if (!isSortAsc) {
             Collections.reverse(animalListToSort);
         }
+        return animalListToSort;
     }
 
     public List<Animal> getAllAnimalsOver5yo(final @NonNull List<Animal> checkedAnimalList, boolean isSortAsc) {
         List<Animal> resultAnimalList = checkedAnimalList.stream()
                 .filter(animal -> animal.getLifetimeYears() >= 5)
                 .collect(Collectors.toList());
-        sortAnimalListByType(resultAnimalList, isSortAsc);
-        return resultAnimalList;
+        return sortAnimalListByType(resultAnimalList, isSortAsc);
     }
 }

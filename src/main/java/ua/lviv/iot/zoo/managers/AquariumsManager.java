@@ -3,6 +3,7 @@ package ua.lviv.iot.zoo.managers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import lombok.EqualsAndHashCode;
 import ua.lviv.iot.zoo.models.animals.AquariumAnimal;
 import ua.lviv.iot.zoo.models.aquariums.Aquarium;
 
@@ -12,18 +13,20 @@ import java.util.Collections;
 
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 public class AquariumsManager extends ZooManager{
     private List<Aquarium> allAquariums;
     private List<AquariumAnimal> allAquariumAnimals;
 
-    public void sortAquariumAnimalsByAquariumCapacity(final List<AquariumAnimal> animalListToSort, boolean isSortAsc) {
+    public List<AquariumAnimal> sortAquariumAnimalsByAquariumCapacity(final List<AquariumAnimal> animalListToSort, boolean isSortAsc) {
         animalListToSort.sort(
                 Comparator.comparing(AquariumAnimal::getRequiredAquariumCapacityLiters)
         );
         if (!isSortAsc) {
             Collections.reverse(animalListToSort);
         }
+        return animalListToSort;
     }
 
     public Aquarium requestAquariumForAnimal(final AquariumAnimal chosenAnimal, final int temperatureDeviation) {

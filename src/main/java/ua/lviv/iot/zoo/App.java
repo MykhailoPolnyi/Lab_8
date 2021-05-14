@@ -86,23 +86,37 @@ public class App {
         );
 
 
-        System.out.println("\n-----Check AquariumsManager method - sortAquariumAnimalsByAquariumCapacity-----");
+        System.out.println("\n\n-----Check AquariumsManager method - sortAquariumAnimalsByAquariumCapacity-----\n");
         System.out.println("Before sorting:");
         andrew.getAllAquariumAnimals()
-                .forEach(aquariumAnimal -> System.out.println(aquariumAnimal.getCurrentAquarium()));
-        andrew.sortAquariumAnimalsByAquariumCapacity(andrew.getAllAquariumAnimals(), true);
-        System.out.println("After sorting(ascending sorting):");
-        andrew.getAllAquariumAnimals()
-                .forEach(aquariumAnimal -> System.out.println(aquariumAnimal.getCurrentAquarium()));
-
-        System.out.println("\n-----Check AquariumsManager method - requestAquariumForAnimal-----");
+                .forEach(aquariumAnimal -> System.out.println(
+                                aquariumAnimal.getAnimalType() + ": aquarium capacity - "
+                                + aquariumAnimal.getCurrentAquarium().getCapacityInLiters()
+                        )
+                );
+        System.out.println("\nAfter sorting(ascending sorting):");
+        andrew.sortAquariumAnimalsByAquariumCapacity(andrew.getAllAquariumAnimals(), true)
+                .forEach(aquariumAnimal -> System.out.println(
+                        aquariumAnimal.getAnimalType() + ": aquarium capacity - " +
+                        aquariumAnimal.getCurrentAquarium().getCapacityInLiters()
+                        )
+                );
+        System.out.println("\n\n-----Check AquariumsManager method - requestAquariumForAnimal-----");
+        System.out.println("Animal parameters:");
+        System.out.println(
+                        "Required capacity: " + dolphin.getRequiredAquariumCapacityLiters() +
+                        ", Required temperature: " + dolphin.getRequiredTemperature() +
+                        ", Required lighting level: " + dolphin.getRequiredLightingLevel()
+                );
+        System.out.println("Created aquarium(expected temperature deviation = 3):");
         System.out.println(andrew.requestAquariumForAnimal(dolphin, 3));
 
 
-        System.out.println("\n-----Check ZooManager method - getAllAnimalsOver5yo.-----\n"
+        System.out.println("\n\n-----Check ZooManager method - getAllAnimalsOver5yo.-----\n"
                 + "Animals also sorted by their type(ascending sorting): ");
         peter.getAllAnimalsOver5yo(peter.getAllAnimals(), true)
-                .forEach(animal -> System.out.println(animal.toString()));
-
+                .forEach(animal -> System.out.println(
+                        animal.getAnimalType() + ", lifetime - " + animal.getLifetimeYears())
+                );
     }
 }
