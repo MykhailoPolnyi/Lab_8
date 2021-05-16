@@ -28,31 +28,29 @@ public class AnimalController {
     public AnimalService animalService;
 
     @GetMapping
-    public ResponseEntity<List<Animal>> getAnimalList(){
+    public ResponseEntity<List<Animal>> getAnimalList() {
         return new ResponseEntity<>(animalService.getAnimalList(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Animal> addAnimal(@RequestBody Animal newAnimal){
+    public ResponseEntity<Animal> addAnimal(@RequestBody Animal newAnimal) {
             return new ResponseEntity<>(animalService.addAnimal(newAnimal), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Animal> getAnimal(@PathVariable Integer id){
+    public ResponseEntity<Animal> getAnimal(@PathVariable Integer id) {
         if (animalService.getAnimalMap().containsKey(id)){
             return new ResponseEntity<>(animalService.getAnimal(id), HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Animal> updateAnimal(@PathVariable Integer id, @RequestBody Animal newUpdAnimal){
+    public ResponseEntity<Animal> updateAnimal(@PathVariable Integer id, @RequestBody Animal newUpdAnimal) {
         if (animalService.getAnimalMap().containsKey(id)) {
             return new ResponseEntity<>(animalService.updateAnimal(id, newUpdAnimal), HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
@@ -62,8 +60,7 @@ public class AnimalController {
         if (animalService.getAnimalMap().containsKey(id)) {
 
             return new ResponseEntity<>(animalService.deleteAnimal(id), HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

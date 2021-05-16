@@ -70,7 +70,7 @@ Create a REST service for one of the classes created in the previous laboratory 
 - Change branch to Lab_9:`git checkout Lab_9`
 - Run `mvn compile`
 - Run `mvn package`
-- Run `java -cp target\ZooServiceLab8-1.0-SNAPSHOT.jar ua.lviv.iot.zoo.rest.ZooRestApp`
+- Run `java -jar target\ZooServiceLab8-1.0-SNAPSHOT.jar`
 
 To check code errors:
 - `mvn checkstyle:check`

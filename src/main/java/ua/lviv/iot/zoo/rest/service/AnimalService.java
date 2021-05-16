@@ -23,26 +23,26 @@ public class AnimalService {
     @Getter
     private Map<Integer, Animal> animalMap = new HashMap<Integer, Animal>();
 
-    public List<Animal> getAnimalList(){
+    public List<Animal> getAnimalList() {
         return animalMap.values().stream().collect(Collectors.toList());
     }
 
-    public Animal getAnimal(Integer id){
+    public Animal getAnimal(Integer id) {
             return animalMap.get(id);
     }
 
-    public Animal addAnimal(Animal receivedAnimal){
+    public Animal addAnimal(Animal receivedAnimal) {
         receivedAnimal.setId(id.incrementAndGet());
         animalMap.put(receivedAnimal.getId(), receivedAnimal);
         return receivedAnimal;
     }
 
-    public Animal updateAnimal(Integer id, Animal receivedAnimal){
+    public Animal updateAnimal(Integer id, Animal receivedAnimal) {
         receivedAnimal.setId(id);
         return animalMap.put(id, receivedAnimal);
     }
 
-    public Animal deleteAnimal(Integer id){
+    public Animal deleteAnimal(Integer id) {
         return animalMap.remove(id);
     }
 }

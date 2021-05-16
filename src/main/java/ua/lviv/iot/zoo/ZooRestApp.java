@@ -1,4 +1,4 @@
-package ua.lviv.iot.zoo.rest;
+package ua.lviv.iot.zoo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
