@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-import ua.lviv.iot.zoo.rest.models.Animal;
+import ua.lviv.iot.zoo.rest.models.AnimalRepr;
 import ua.lviv.iot.zoo.rest.service.AnimalService;
 
 import java.util.List;
@@ -28,17 +28,17 @@ public class AnimalController {
     public AnimalService animalService;
 
     @GetMapping
-    public ResponseEntity<List<Animal>> getAnimalList() {
+    public ResponseEntity<List<AnimalRepr>> getAnimalList() {
         return new ResponseEntity<>(animalService.getAnimalList(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Animal> addAnimal(@RequestBody Animal newAnimal) {
-            return new ResponseEntity<>(animalService.addAnimal(newAnimal), HttpStatus.CREATED);
+    public ResponseEntity<AnimalRepr> addAnimal(@RequestBody AnimalRepr newAnimalRepr) {
+            return new ResponseEntity<>(animalService.addAnimal(newAnimalRepr), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Animal> getAnimal(@PathVariable Integer id) {
+    public ResponseEntity<AnimalRepr> getAnimal(@PathVariable Integer id) {
         if (animalService.getAnimalMap().containsKey(id)){
             return new ResponseEntity<>(animalService.getAnimal(id), HttpStatus.OK);
         } else {
@@ -47,16 +47,16 @@ public class AnimalController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Animal> updateAnimal(@PathVariable Integer id, @RequestBody Animal newUpdAnimal) {
+    public ResponseEntity<AnimalRepr> updateAnimal(@PathVariable Integer id, @RequestBody AnimalRepr newUpdAnimalRepr) {
         if (animalService.getAnimalMap().containsKey(id)) {
-            return new ResponseEntity<>(animalService.updateAnimal(id, newUpdAnimal), HttpStatus.OK);
+            return new ResponseEntity<>(animalService.updateAnimal(id, newUpdAnimalRepr), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Animal> deleteAnimal(@PathVariable Integer id){
+    public ResponseEntity<AnimalRepr> deleteAnimal(@PathVariable Integer id){
         if (animalService.getAnimalMap().containsKey(id)) {
 
             return new ResponseEntity<>(animalService.deleteAnimal(id), HttpStatus.OK);

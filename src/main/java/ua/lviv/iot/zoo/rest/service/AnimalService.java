@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import ua.lviv.iot.zoo.rest.models.Animal;
+import ua.lviv.iot.zoo.rest.models.AnimalRepr;
 
 @Service
 @ApplicationScope
@@ -21,28 +21,28 @@ public class AnimalService {
     static private AtomicInteger id = new AtomicInteger(0);
 
     @Getter
-    private Map<Integer, Animal> animalMap = new HashMap<Integer, Animal>();
+    private Map<Integer, AnimalRepr> animalMap = new HashMap<Integer, AnimalRepr>();
 
-    public List<Animal> getAnimalList() {
+    public List<AnimalRepr> getAnimalList() {
         return animalMap.values().stream().collect(Collectors.toList());
     }
 
-    public Animal getAnimal(Integer id) {
+    public AnimalRepr getAnimal(Integer id) {
             return animalMap.get(id);
     }
 
-    public Animal addAnimal(Animal receivedAnimal) {
-        receivedAnimal.setId(id.incrementAndGet());
-        animalMap.put(receivedAnimal.getId(), receivedAnimal);
-        return receivedAnimal;
+    public AnimalRepr addAnimal(AnimalRepr receivedAnimalRepr) {
+        receivedAnimalRepr.setId(id.incrementAndGet());
+        animalMap.put(receivedAnimalRepr.getId(), receivedAnimalRepr);
+        return receivedAnimalRepr;
     }
 
-    public Animal updateAnimal(Integer id, Animal receivedAnimal) {
-        receivedAnimal.setId(id);
-        return animalMap.put(id, receivedAnimal);
+    public AnimalRepr updateAnimal(Integer id, AnimalRepr receivedAnimalRepr) {
+        receivedAnimalRepr.setId(id);
+        return animalMap.put(id, receivedAnimalRepr);
     }
 
-    public Animal deleteAnimal(Integer id) {
+    public AnimalRepr deleteAnimal(Integer id) {
         return animalMap.remove(id);
     }
 }

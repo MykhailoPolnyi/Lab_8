@@ -10,6 +10,6 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized @SuperBuilder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Animal extends ua.lviv.iot.zoo.models.animals.Animal {
+public class AnimalRepr extends ua.lviv.iot.zoo.models.animals.Animal {
     private Integer id;
 }
