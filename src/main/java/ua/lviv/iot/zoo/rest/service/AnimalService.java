@@ -36,7 +36,7 @@ public class AnimalService {
 
     public AnimalRepr updateAnimal(Integer id, AnimalRepr receivedAnimalRepr) {
         if (repository.existsById(id)){
-            return repository.findById(id).get();
+            return repository.save(receivedAnimalRepr);
         }
         throw new NoSuchElementException("NOT FOUND: Cannot find animal with id:" + id + "in the system");
     }
