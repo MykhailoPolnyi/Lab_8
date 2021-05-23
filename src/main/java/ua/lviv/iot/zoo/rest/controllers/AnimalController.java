@@ -29,7 +29,7 @@ public class AnimalController {
     private static final Logger LOGGER = Logger.getLogger("ua/lviv/iot/zoo/rest/controllers/AnimalController");
 
     @Autowired
-    public AnimalService animalService;
+    private AnimalService animalService;
 
     @GetMapping
     public ResponseEntity<List<AnimalRepr>> getAnimalList() {
@@ -50,7 +50,7 @@ public class AnimalController {
         try {
             return new ResponseEntity<>(animalService.getAnimal(id), HttpStatus.OK);
         }
-        catch (NoSuchElementException e){
+        catch (NoSuchElementException e) {
             LOGGER.severe(e.toString());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -73,11 +73,11 @@ public class AnimalController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<AnimalRepr> deleteAnimal(@PathVariable Integer id){
+    public ResponseEntity<AnimalRepr> deleteAnimal(@PathVariable Integer id) {
         try {
             return new ResponseEntity<>(animalService.deleteAnimal(id), HttpStatus.OK);
         }
-        catch (NoSuchElementException e){
+        catch (NoSuchElementException e) {
             LOGGER.severe(e.toString());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
