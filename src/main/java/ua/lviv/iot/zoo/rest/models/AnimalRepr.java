@@ -1,15 +1,22 @@
 package ua.lviv.iot.zoo.rest.models;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import ua.lviv.iot.zoo.models.animals.Animal;
 
 @Data
-@Jacksonized @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class AnimalRepr extends ua.lviv.iot.zoo.models.animals.Animal {
+@Entity
+public class AnimalRepr extends Animal {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 }
