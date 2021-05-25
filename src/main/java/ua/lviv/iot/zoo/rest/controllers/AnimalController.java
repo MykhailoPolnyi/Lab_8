@@ -56,15 +56,10 @@ public class AnimalController {
         }
     }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<AnimalRepr> updateAnimal(@PathVariable Integer id, @RequestBody AnimalRepr newAnimalRepr) {
-        if (newAnimalRepr.getId() != null) {
-            LOGGER.severe("BAD REQUEST: trying to change object`s id");
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        newAnimalRepr.setId(id);
+    @PutMapping
+    public ResponseEntity<AnimalRepr> updateAnimal(@RequestBody AnimalRepr newAnimalRepr) {
         try {
-            return new ResponseEntity<>(animalService.updateAnimal(id, newAnimalRepr), HttpStatus.OK);
+            return new ResponseEntity<>(animalService.updateAnimal(newAnimalRepr), HttpStatus.OK);
         }
         catch (NoSuchElementException e) {
             LOGGER.severe(e.toString());

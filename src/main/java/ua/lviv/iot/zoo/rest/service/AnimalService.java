@@ -34,11 +34,14 @@ public class AnimalService {
         throw new NoSuchElementException("NOT FOUND: Cannot find animal with id:" + id + "in the system");
     }
 
-    public AnimalRepr updateAnimal(Integer id, AnimalRepr receivedAnimalRepr) {
-        if (repository.existsById(id)) {
+    public AnimalRepr updateAnimal(AnimalRepr receivedAnimalRepr) {
+
+        if (repository.existsById(receivedAnimalRepr.getId())) {
             return repository.save(receivedAnimalRepr);
         }
-        throw new NoSuchElementException("NOT FOUND: Cannot find animal with id:" + id + "in the system");
+        throw new NoSuchElementException(
+                "NOT FOUND: Cannot find animal with id:" + receivedAnimalRepr.getId() + "in the system"
+        );
     }
 
     public AnimalRepr deleteAnimal(Integer id) {
