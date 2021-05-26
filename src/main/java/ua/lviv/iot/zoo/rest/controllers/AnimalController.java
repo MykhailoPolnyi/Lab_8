@@ -19,48 +19,61 @@ import ua.lviv.iot.zoo.rest.models.AnimalRepr;
 import ua.lviv.iot.zoo.rest.service.AnimalService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/animals")
 public class AnimalController {
 
+    private static final Logger LOGGER = Logger.getLogger("ua/lviv/iot/zoo/rest/controllers/AnimalController");
+
     @Autowired
-    public AnimalService animalService;
+    private AnimalService animalService;
 
     @GetMapping
     public ResponseEntity<List<AnimalRepr>> getAnimalList() {
-        return new ResponseEntity<>(animalService.getAnimalList(), HttpStatus.OK);
+            return new ResponseEntity<>(animalService.getAnimalList(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<AnimalRepr> addAnimal(@RequestBody AnimalRepr newAnimalRepr) {
+        if (newAnimalRepr.getId() != null) {
+            LOGGER.severe("BAD REQUEST: trying to set created object`s id externally");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
             return new ResponseEntity<>(animalService.addAnimal(newAnimalRepr), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<AnimalRepr> getAnimal(@PathVariable Integer id) {
-        if (animalService.getAnimalMap().containsKey(id)){
+        try {
             return new ResponseEntity<>(animalService.getAnimal(id), HttpStatus.OK);
-        } else {
+        }
+        catch (NoSuchElementException e) {
+            LOGGER.severe(e.toString());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<AnimalRepr> updateAnimal(@PathVariable Integer id, @RequestBody AnimalRepr newUpdAnimalRepr) {
-        if (animalService.getAnimalMap().containsKey(id)) {
-            return new ResponseEntity<>(animalService.updateAnimal(id, newUpdAnimalRepr), HttpStatus.OK);
-        } else {
+    @PutMapping
+    public ResponseEntity<AnimalRepr> updateAnimal(@RequestBody AnimalRepr newAnimalRepr) {
+        try {
+            return new ResponseEntity<>(animalService.updateAnimal(newAnimalRepr), HttpStatus.OK);
+        }
+        catch (NoSuchElementException e) {
+            LOGGER.severe(e.toString());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<AnimalRepr> deleteAnimal(@PathVariable Integer id){
-        if (animalService.getAnimalMap().containsKey(id)) {
-
+    public ResponseEntity<AnimalRepr> deleteAnimal(@PathVariable Integer id) {
+        try {
             return new ResponseEntity<>(animalService.deleteAnimal(id), HttpStatus.OK);
-        } else {
+        }
+        catch (NoSuchElementException e) {
+            LOGGER.severe(e.toString());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
